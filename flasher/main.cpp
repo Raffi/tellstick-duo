@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 #include <string>
 
 const int MAX_LINE_LEN = 80;
@@ -17,8 +18,8 @@ std::string readHex(FILE *fd);
 void uploadHex( FT_HANDLE ftHandle, const std::string &data );
 int ParseHex( char *characters, int length );
 
-const int BOOTLOADER_START = 0x3A00; //TellStick
-// const int BOOTLOADER_START = 0x7A00; //TellStick Duo
+// const int BOOTLOADER_START = 0x3A00; //TellStick
+const int BOOTLOADER_START = 0x7A00; //TellStick Duo
 
 int main(int argc, char **argv) {
 	FILE *fd;
@@ -26,8 +27,8 @@ int main(int argc, char **argv) {
 	FT_HANDLE ftHandle;
 	DWORD dwNumberOfDevices = 0;
 //	int vid = 0x0403, pid = 0x6001;
-//	int vid = 0x1781, pid = 0x0C31;
-	int vid = 0x1781, pid = 0x0C30;
+	int vid = 0x1781, pid = 0x0C31;
+//	int vid = 0x1781, pid = 0x0C30;
 
 	if (argc < 2) {
 		printf("Usage: %s filename\n", argv[0]);
